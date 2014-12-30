@@ -1,0 +1,47 @@
+move person around by clicking
+plant tree or light fire by clicking, but first have to move him there. right click to just move, not plant
+need different action system - need click location object which activates when character reaches there, or cancels.
+needs to trigger events at that location.  hm.. custom events or some such
+also need "health bar" for player
+
+
+time to make it harder
+snow piles still exist under trees - only fire or sun can shrink it
+how to do:
+  treeGrid probably gets a new instance called snowGrid
+  treeGrid will have a lot of null values
+  snowflakes have to collide with both but oh well
+  need to update & draw both treeGrid and snowGrid
+alternately:
+  each square of grid can have tree/fire in addition to snowPile
+  each interaction calls each function on each subpart as well
+  
+  
+could have sunny time & winter time.  trees only grow (or grow faster) in summer time, and can only be burnt in winter.  then your space gets smaller each winter
+could also add costs to planting/growing trees.
+could make snow come from different directions
+could decrease time fire alive, increase time sapling
+could simply have set number trees allowed to plant in summer
+
+have two interesting modes
+one where trying to light correct trees on fire and at right times to stay alive (winter)
+different tree placements (by developer) can make this more difficult
+summer plant trees to prepare for winter
+
+fancy wind direction spawning formula
+spawn n flakes along corner
+essentially whatever ratio x:y should spawn using total same ratio
+x is to y as 4:3 then spawn 4b on x & 3b on y
+make x,y into a unit vector
+then spawn x(unit vector) on & y (unit vector) on y
+if x>y
+{
+	//should spawn more along horizontal
+	//how many more?
+	1-y/2x along horizontal
+	& y/2x along vertical
+}
+spawn (1-x/y)*n on x and (x/y)*n on y?
+if x/y==0 -x much greater, spawn 100% along right or left side
+if x==y (x/y==1), spawn 1/2 each on vertical & horizontal
+if y/x==0, spawn 100% along top or bot
